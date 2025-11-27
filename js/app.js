@@ -1,5 +1,15 @@
 // vCard QR Generator - Main Application
 
+// Genera un ID corto alfanumérico (6 caracteres)
+function generateShortId() {
+    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let id = '';
+    for (let i = 0; i < 6; i++) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return id;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('vcard-form');
     const modal = document.getElementById('qr-modal');
@@ -21,8 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = true;
 
         try {
+            // Generar ID corto
+            const shortId = generateShortId();
+
             // Gather form data
             const formData = {
+                short_id: shortId,
                 first_name: document.getElementById('firstName').value.trim(),
                 last_name: document.getElementById('lastName').value.trim(),
                 title: document.getElementById('title').value.trim(),
@@ -54,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw error;
             }
 
-            // Generate contact URL
-            const contactUrl = `${getBaseUrl()}contact.html?id=${data.id}`;
+            // Generate contact URL (usando el ID corto)
+            const contactUrl = `${getBaseUrl()}c.html?i=${data.short_id}`;
             
             // Generate QR Code using qrcodejs library
             qrCodeContainer.innerHTML = '';

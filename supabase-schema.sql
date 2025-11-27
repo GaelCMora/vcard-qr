@@ -6,6 +6,7 @@
 -- Crear la tabla vcards
 CREATE TABLE public.vcards (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    short_id VARCHAR(6) UNIQUE NOT NULL,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
     title VARCHAR(150),
@@ -43,6 +44,9 @@ CREATE POLICY "Allow anonymous select" ON public.vcards
 
 -- Crear índice en el campo created_at para mejor rendimiento
 CREATE INDEX idx_vcards_created_at ON public.vcards(created_at DESC);
+
+-- Crear índice en el campo short_id para búsquedas rápidas
+CREATE INDEX idx_vcards_short_id ON public.vcards(short_id);
 
 -- Comentario en la tabla
 COMMENT ON TABLE public.vcards IS 'Tabla para almacenar información de tarjetas de contacto vCard';
