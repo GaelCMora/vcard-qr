@@ -4,7 +4,7 @@ Sistema de generación de tarjetas de contacto digitales con códigos QR.
 
 ## 🚀 Demo
 
-Visita: `https://TU_USUARIO.github.io/vcard-qr/`
+Visita: `https://GaelCMora.github.io/vcard-qr/`
 
 ## ✨ Características
 
