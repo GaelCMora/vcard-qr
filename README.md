@@ -53,7 +53,7 @@ git push -u origin main
 
 ### 4. ¡Listo!
 
-Tu sitio estará disponible en: `https://TU_USUARIO.github.io/vcard-qr/`
+Tu sitio estará disponible en: `https://GaelCMora.github.io/vcard-qr/`
 
 ## 📝 Configuración de Supabase
 
